@@ -1,0 +1,27 @@
+name: submit-score
+run-name: Submit
+# trigger the workflow manually
+on:
+  workflow_dispatch:
+    inputs:
+      CHAPTER:
+        description: "Chapter number (chapter1)"
+        required: true
+      EXERCISE:
+        description: "Exercise number (ex01)"
+        required: true
+      RUN_ID:
+        description: "Timestamp of the workflow dispatch event to track runs"
+        required: true
+
+# Issue: https://github.com/internal-CSP-HES-engineering/cengage-customUI/issues/2
+# Credit: https://stackoverflow.com/questions/69479400/get-run-id-after-triggering-a-github-workflow-dispatch-event
+jobs:
+  run_id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ${{ inputs.RUN_ID }}
+        run: echo run id ${{ inputs.RUN_ID }}
+
+
+

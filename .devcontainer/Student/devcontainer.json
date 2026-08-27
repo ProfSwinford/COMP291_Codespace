@@ -1,0 +1,45 @@
+{
+  "name": "COMP291",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cengage.cengage-companion",
+        "vscjava.vscode-java-pack",
+        "ms-vsliveshare.vsliveshare"
+      ],
+      "settings": {
+        "settingsSync.enable": false,
+        "workbench.colorTheme": "Default Dark Modern",
+        "java.server.launchMode": "Standard",
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.import.exclusions": [],
+        "java.project.importHint": false,
+        "java.contentProvider.preferred": "workspace",
+        "java.sources.organizeImports.starThreshold": 9999,
+        "java.sources.organizeImports.staticStarThreshold": 9999,
+        "java.debug.settings.enableRunDebugCodeLens": false,
+        "workbench.view.testing.visible": false,
+        "java.project.referencedLibraries": ["**/*.java"],
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "redhat.java"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:latest": {
+      "webBrowser": false,
+      "audio": false
+    }
+  },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "desktop"
+    }
+  },
+  "postCreateCommand": "export _JAVA_OPTIONS='-Dsun.java2d.xrender=false'"
+}
